@@ -26,11 +26,8 @@ pipeline {
     }
 
     stage('Docker image push') {
-      environment {
-        BUILD_NUMBER = '1'
-      }
       steps {
-        sh '''docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        sh '''docker login -u rishatazizov -p $DOCKER_PASSWORD
 docker image push username/repo:v2
 '''
       }
