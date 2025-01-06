@@ -13,5 +13,17 @@ pipeline {
       }
     }
 
+    stage('Tests') {
+      steps {
+        sh 'script scripts/test.sh'
+      }
+    }
+
+    stage('Docker image build') {
+      steps {
+        sh 'docker build -t razizov-cicd'
+      }
+    }
+
   }
 }
