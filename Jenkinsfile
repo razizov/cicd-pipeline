@@ -27,17 +27,13 @@ pipeline {
 
     stage('Docker image push') {
       steps {
-        sh ''' stage(\'Docker Image Push\') {
-      steps {
-        echo \'Pushing Docker image...\'
-        script {
-          docker.withRegistry(\'https://registry.hub.docker.com\', \'dockerhub\') {
-            def app = docker.image("$rishatazizov/cicdtest")
-            app.push(\'latest\')
-          }
-        }
-      }
-    }'''
+        sh '''script {
+docker.withRegistry(\'https://registry.hub.docker.com\', \'dockerhub\') {
+def app = docker.image("$rishatazizov/cicdtest")
+app.push(\'latest\')
+}
+}
+'''
         }
       }
 
