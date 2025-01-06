@@ -30,14 +30,9 @@ pipeline {
         BUILD_NUMBER = '1'
       }
       steps {
-        script {
-          docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
-          {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")1
-          }
-        }
-
+        sh '''docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+docker image push username/repo:v2
+'''
       }
     }
 
