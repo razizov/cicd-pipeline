@@ -26,8 +26,12 @@ pipeline {
     }
 
     stage('Docker image push') {
+      environment {
+        USER = 'rishatazizov'
+        PASS = 'jyvgyd-tUqmew-qupmo8'
+      }
       steps {
-        sh '''docker login -u rishatazizov -p "DNtRL9NAvHoRBtGYRY0-eq23lNk"
+        sh '''docker login -u $USER -p $PASS
 docker image push rishatazizov/cicdtest:latest
 '''
       }
