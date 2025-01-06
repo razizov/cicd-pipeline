@@ -29,7 +29,7 @@ pipeline {
       steps {
         sh '''script {
 docker.withRegistry(\'https://registry.hub.docker.com\', \'dockerhub\') {
-def app = docker.image("$rishatazizov/cicdtest")
+def app = docker.image("rishatazizov/cicdtest")
 app.push(\'latest\')
 }
 }
