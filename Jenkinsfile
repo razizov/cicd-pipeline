@@ -21,7 +21,7 @@ pipeline {
 
     stage('Docker image build') {
       steps {
-        sh 'docker build -t razizov-cicd'
+        sh 'docker build -t rishatazizov/cicdtest'
       }
     }
 
