@@ -26,11 +26,19 @@ pipeline {
     }
 
     stage('Docker image push') {
+      environment {
+        BUILD_NUMBER = '1'
+      }
       steps {
         sh '''script {
-docker.withRegistry(\'https://registry.hub.docker.com\', \'dockerhub\') {
-def app = docker.image("rishatazizov/cicdtest")
-app.push(\'latest\')
+docker.withRegistry(\'https://registry.hub.docker.com\', \'dockerhub\')  
+
+
+
+
+{ 
+app.push("${env.BUILD_NUMBER}") 
+app.push("latest") 
 }
 }
 '''
