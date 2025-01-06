@@ -27,7 +27,7 @@ pipeline {
 
     stage('Docker image push') {
       steps {
-        sh '''docker login -u rishatazizov -p $PASS
+        sh '''docker login -u rishatazizov -p 
 docker image push rishatazizov/cicdtest:latest
 '''
       }
